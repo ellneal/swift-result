@@ -1,6 +1,7 @@
 branches:
   only:
   - master
+tags: true
 matrix:
   include:
   - os: osx
