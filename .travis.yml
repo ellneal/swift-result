@@ -11,3 +11,9 @@ matrix:
       language: objective-c
       osx_image: xcode10.1
       script: make build
+    - os: osx
+      language: objective-c
+      osx_image: xcode10.1
+      script:
+        - brew install carthage
+        - carthage build --archive
