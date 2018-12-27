@@ -16,4 +16,5 @@ matrix:
       osx_image: xcode10.1
       script:
         - brew install carthage
+        - swift package generate-xcodeproj
         - carthage build --archive
