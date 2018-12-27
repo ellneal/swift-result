@@ -1,0 +1,12 @@
+branches:
+  only:
+    - master
+matrix:
+  include:
+    - os: osx
+      language: objective-c
+      osx_image: xcode10.1
+      script: make lint
+    - os: osx
+      language: objective-c
+      script: make build
