@@ -1,24 +1,27 @@
 matrix:
   include:
   - os: osx
+    stage: lint
     language: objective-c
     osx_image: xcode10.1
     script: make lint
   - os: osx
+    stage: build
     language: objective-c
     osx_image: xcode10.1
     script: make build
   - os: osx
+    stage: deploy
     language: objective-c
     osx_image: xcode10.1
     script:
     - brew install carthage
     - make archive
-deploy:
-  provider: releases
-  skip_cleanup: true
-  api_key:
-    secure: g97ONOTnHu8+RRZlYn15lUvW82L1bP+VgXdvzqMS31e3u+G+H/hnUuIXBRSgh3xOTaecuXZZD7hASEgttYLIrBDghpk9AIZyXsTM9UBtJ5HLywyLzNfeq7SY4MdWKdMAS9xZLLpwC/6EAR+/A35qhA5Zn2oRSbbJXKgyYj15Ddk7Lp+yh5xORNPbaSdM6ZzhkzrIrVZeYnRNXtiNEUXet2B8uYDzSznpFCXWQSYwpRtsehq/3jWB6mMnlVb7NSz72PKBvenQ3MC1dVE628tgsN7wo7rZ/fXQlfLLAw30KiF2ffGKiihOk4DrbAMXOZS4mRhqxxZmjH77H9URie0NE/5mQJRnEDN+WrubujTnv5+Za9FZNJNSE10JkjTGYZfdoUNCjRoyl80nCjxcmharrsVDMUf0f4/yjOkZLCUPZ0c2vpanOasPantEj5uVmySPLM3vyo8fSWcjNti0QyHlL41/+0WIiZmmoBcj7aawmh/xKmUs8Hu7x2lHoWBDd/fFeVoH7IaC0cnBr3yeOUWy6VBLNBtBkBsHZuzLyh+Xet1KRRAnIJl4mE9jWKMDiGL0yYsTtwfwZSQJdBkd5pL128vKpUWR5rvaDG9xWQFieem2nHypAPKHH7cJJJ+DQqp9NOpKZRFm/V4tmE1KDmumOY9f8rkyWjHjXNYYVzBAyEM=
-  file: Result.framework.zip
-  on:
-    tags: true
+    deploy:
+      provider: releases
+      skip_cleanup: true
+      api_key:
+        secure: g97ONOTnHu8+RRZlYn15lUvW82L1bP+VgXdvzqMS31e3u+G+H/hnUuIXBRSgh3xOTaecuXZZD7hASEgttYLIrBDghpk9AIZyXsTM9UBtJ5HLywyLzNfeq7SY4MdWKdMAS9xZLLpwC/6EAR+/A35qhA5Zn2oRSbbJXKgyYj15Ddk7Lp+yh5xORNPbaSdM6ZzhkzrIrVZeYnRNXtiNEUXet2B8uYDzSznpFCXWQSYwpRtsehq/3jWB6mMnlVb7NSz72PKBvenQ3MC1dVE628tgsN7wo7rZ/fXQlfLLAw30KiF2ffGKiihOk4DrbAMXOZS4mRhqxxZmjH77H9URie0NE/5mQJRnEDN+WrubujTnv5+Za9FZNJNSE10JkjTGYZfdoUNCjRoyl80nCjxcmharrsVDMUf0f4/yjOkZLCUPZ0c2vpanOasPantEj5uVmySPLM3vyo8fSWcjNti0QyHlL41/+0WIiZmmoBcj7aawmh/xKmUs8Hu7x2lHoWBDd/fFeVoH7IaC0cnBr3yeOUWy6VBLNBtBkBsHZuzLyh+Xet1KRRAnIJl4mE9jWKMDiGL0yYsTtwfwZSQJdBkd5pL128vKpUWR5rvaDG9xWQFieem2nHypAPKHH7cJJJ+DQqp9NOpKZRFm/V4tmE1KDmumOY9f8rkyWjHjXNYYVzBAyEM=
+      file: Result.framework.zip
+      on:
+        tags: true
