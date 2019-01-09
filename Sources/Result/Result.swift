@@ -42,4 +42,4 @@ Error: CustomDebugStringConvertible {
 
 extension Never: Error { }
 public typealias InfallibleResult<Value> = Result<Value, Never>
-public typealias LemonResult<Error: Swift.Error> = Result<Never, Error>
+public typealias ErroneousResult<Error: Swift.Error> = Result<Never, Error>
