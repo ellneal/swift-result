@@ -10,7 +10,8 @@ build:
 .PHONY: generate-xcodeproj
 generate-xcodeproj:
 	rm -rf Result.xcodeproj/; \
-	swift package generate-xcodeproj --xcconfig-overrides Config.xcconfig
+	swift package generate-xcodeproj \
+		--xcconfig-overrides Config.xcconfig
 
 .PHONY: lint
 lint:
