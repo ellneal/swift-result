@@ -1,6 +1,6 @@
 # Result
 
-A simple `Result<Value, Error: Swift.Error>` while we wait for Swift 5.
+A simple `Result<Success, Failure: Swift.Error>` while we wait for Swift 5.
 
 ### Installation
 
