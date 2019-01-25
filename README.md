@@ -42,3 +42,22 @@ try {
     print(error) // prints CustomError.someError
 }
 ```
+
+
+##### EmptyResult
+
+Empty result is useful when there's no corresponding value for a successful result.
+
+```swift
+let success: EmptyResult<CustomError> = .success
+
+// syntactic sugar for let success: Result<Void, CustomError> = .value(())
+```
+
+##### InfallibleResult
+
+An `InfallibleResult<Value>` can never be in error (`Result<Value, Never>`).
+
+##### ErroneousResult
+
+An `ErroneousResult<Error>` can never have a value (`Result<Never, Error>`).
