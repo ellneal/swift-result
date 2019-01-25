@@ -4,3 +4,4 @@
 /*.xcodeproj
 /Carthage
 /Config/Version.xcconfig
+/Development/.build
