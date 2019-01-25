@@ -2,6 +2,24 @@
 
 A simple `Result<Value, Error: Swift.Error>` while we wait for Swift 5.
 
+### Installation
+
+##### SwiftPM
+
+```swift
+...
+    dependencies: [
+        .package(url: "https://github.com/ellneal/swift-result", from: "1.1.0"),
+    ]
+...
+```
+
+##### Carthage
+
+```
+github "ellneal/swift-result" ~> 1.1.0
+```
+
 ### Usage
 
 ```swift
