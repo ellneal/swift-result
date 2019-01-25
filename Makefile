@@ -16,3 +16,7 @@ generate-xcodeproj:
 .PHONY: lint
 lint:
 	swiftlint
+
+.PHONY: test
+test:
+	swift test
