@@ -61,3 +61,13 @@ An `InfallibleResult<Success>` can never be in error (`Result<Success, Never>`).
 #### ErroneousResult
 
 An `ErroneousResult<Failure>` can never have a value (`Result<Never, Failure>`).
+
+### Contributing
+
+#### Setup
+
+```bash
+git clone git@github.com:ellneal/swift-promise.git
+cd swift-promise
+make generate-xcodeproj && open Result.xcodeproj
+```
