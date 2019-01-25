@@ -1,45 +1,45 @@
-public enum Result<Value, Error: Swift.Error> {
-    case value(Value)
-    case error(Error)
+public enum Result<Success, Failure: Swift.Error> {
+    case success(Success)
+    case failure(Failure)
 }
 
 extension Result {
-    @discardableResult public func resolve() throws -> Value {
+    @discardableResult public func resolve() throws -> Success {
         switch self {
-        case .value(let value):
+        case .success(let value):
             return value
-        case .error(let error):
+        case .failure(let error):
             throw error
         }
     }
 }
 
-extension Result: Equatable where Value: Equatable, Error: Equatable { }
-extension Result: Hashable where Value: Hashable, Error: Hashable { }
+extension Result: Equatable where Success: Equatable, Failure: Equatable { }
+extension Result: Hashable where Success: Hashable, Failure: Hashable { }
 
-extension Result: CustomStringConvertible where Value: CustomStringConvertible, Error: CustomStringConvertible {
+extension Result: CustomStringConvertible where Success: CustomStringConvertible, Failure: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .value(let value):
+        case .success(let value):
             return value.description
-        case .error(let error):
+        case .failure(let error):
             return error.description
         }
     }
 }
 
-extension Result: CustomDebugStringConvertible where Value: CustomDebugStringConvertible,
-Error: CustomDebugStringConvertible {
+extension Result: CustomDebugStringConvertible where Success: CustomDebugStringConvertible,
+Failure: CustomDebugStringConvertible {
     public var debugDescription: String {
         switch self {
-        case .value(let value):
+        case .success(let value):
             return value.debugDescription
-        case .error(let error):
+        case .failure(let error):
             return error.debugDescription
         }
     }
 }
 
 extension Never: Error { }
-public typealias InfallibleResult<Value> = Result<Value, Never>
-public typealias ErroneousResult<Error: Swift.Error> = Result<Never, Error>
+public typealias InfallibleResult<Success> = Result<Success, Never>
+public typealias ErroneousResult<Failure: Swift.Error> = Result<Never, Failure>
