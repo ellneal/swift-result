@@ -22,7 +22,7 @@ generate-xcodeproj:
 
 .PHONY: lint
 lint:
-	swiftlint
+	swift run --package-path Development/ swiftlint
 
 .PHONY: test
 test:
