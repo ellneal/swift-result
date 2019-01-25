@@ -2,7 +2,7 @@
 
 A simple `Result<Success, Failure: Swift.Error>` while we wait for Swift 5.
 
-### Installation
+## Installation
 
 #### SwiftPM
 
@@ -20,7 +20,7 @@ A simple `Result<Success, Failure: Swift.Error>` while we wait for Swift 5.
 github "ellneal/swift-result" ~> 2.0.0
 ```
 
-### Usage
+## Usage
 
 ```swift
 enum CustomError: Swift.Error {
@@ -62,7 +62,7 @@ An `InfallibleResult<Success>` can never be in error (`Result<Success, Never>`).
 
 An `ErroneousResult<Failure>` can never have a value (`Result<Never, Failure>`).
 
-### Contributing
+## Contributing
 
 #### Setup
 
