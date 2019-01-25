@@ -9,7 +9,7 @@ A simple `Result<Value, Error: Swift.Error>` while we wait for Swift 5.
 ```swift
 ...
     dependencies: [
-        .package(url: "https://github.com/ellneal/swift-result", from: "1.1.0"),
+        .package(url: "https://github.com/ellneal/swift-result", from: "2.0.0"),
     ]
 ...
 ```
@@ -17,7 +17,7 @@ A simple `Result<Value, Error: Swift.Error>` while we wait for Swift 5.
 ##### Carthage
 
 ```
-github "ellneal/swift-result" ~> 1.1.0
+github "ellneal/swift-result" ~> 2.0.0
 ```
 
 ### Usage
@@ -27,7 +27,7 @@ enum CustomError: Swift.Error {
     case someError
 }
 
-let value: Result<String, CustomError> = .value("Value")
+let value: Result<String, CustomError> = .success("Value")
 try {
     let string = try value.resolve()
     print(string) // prints "Value"
@@ -35,7 +35,7 @@ try {
     // won't throw
 }
 
-let error: Result<String, CustomError> = .error(.someError)
+let error: Result<String, CustomError> = .failure(.someError)
 try {
     let never = try value.resolve()
 } catch let error {
@@ -51,13 +51,13 @@ Empty result is useful when there's no corresponding value for a successful resu
 ```swift
 let success: EmptyResult<CustomError> = .success
 
-// syntactic sugar for let success: Result<Void, CustomError> = .value(())
+// syntactic sugar for let success: Result<Void, CustomError> = .success(())
 ```
 
 ##### InfallibleResult
 
-An `InfallibleResult<Value>` can never be in error (`Result<Value, Never>`).
+An `InfallibleResult<Success>` can never be in error (`Result<Success, Never>`).
 
 ##### ErroneousResult
 
-An `ErroneousResult<Error>` can never have a value (`Result<Never, Error>`).
+An `ErroneousResult<Failure>` can never have a value (`Result<Never, Failure>`).
