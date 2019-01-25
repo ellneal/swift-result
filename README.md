@@ -4,7 +4,7 @@ A simple `Result<Success, Failure: Swift.Error>` while we wait for Swift 5.
 
 ### Installation
 
-##### SwiftPM
+#### SwiftPM
 
 ```swift
 ...
@@ -14,7 +14,7 @@ A simple `Result<Success, Failure: Swift.Error>` while we wait for Swift 5.
 ...
 ```
 
-##### Carthage
+#### Carthage
 
 ```
 github "ellneal/swift-result" ~> 2.0.0
@@ -44,7 +44,7 @@ try {
 ```
 
 
-##### EmptyResult
+#### EmptyResult
 
 Empty result is useful when there's no corresponding value for a successful result.
 
@@ -54,10 +54,10 @@ let success: EmptyResult<CustomError> = .success
 // syntactic sugar for let success: Result<Void, CustomError> = .success(())
 ```
 
-##### InfallibleResult
+#### InfallibleResult
 
 An `InfallibleResult<Success>` can never be in error (`Result<Success, Never>`).
 
-##### ErroneousResult
+#### ErroneousResult
 
 An `ErroneousResult<Failure>` can never have a value (`Result<Never, Failure>`).
